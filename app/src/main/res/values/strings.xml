@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ReduxDemo</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="filters">
+        <item>ALL</item>
+        <item>ACTIVE </item>
+        <item>COMPLETED</item>
+    </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>
