@@ -1,4 +1,4 @@
-package com.ntop.redux.demo;
+package com.ntop.demo;
 
 import org.junit.Test;
 

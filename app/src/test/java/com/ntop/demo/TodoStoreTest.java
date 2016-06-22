@@ -1,13 +1,13 @@
-package com.ntop.redux.demo;
+package com.ntop.demo;
 
-import com.ntop.redux.demo.redux.Reducer;
-import com.ntop.redux.demo.redux.Redux;
-import com.ntop.redux.demo.todo.AppState;
-import com.ntop.redux.demo.todo.TodoStore;
-import com.ntop.redux.demo.todo.actions.AddTodo;
-import com.ntop.redux.demo.todo.model.Task;
-import com.ntop.redux.demo.todo.reducers.FilterReducer;
-import com.ntop.redux.demo.todo.reducers.TodoReducer;
+import com.ntop.demo.redux.Reducer;
+import com.ntop.demo.redux.Redux;
+import com.ntop.demo.todo.AppState;
+import com.ntop.demo.todo.TodoStore;
+import com.ntop.demo.todo.actions.AddTodo;
+import com.ntop.demo.todo.model.Task;
+import com.ntop.demo.todo.reducers.FilterReducer;
+import com.ntop.demo.todo.reducers.TodoReducer;
 
 import org.junit.Test;
 
@@ -33,7 +33,6 @@ public class TodoStoreTest {
 
         TodoStore store = Redux.createStore(TodoStore.class, combineReducer);
 
-
         store.dispatch(new AddTodo("write some test"));
 
         assertEquals(1, store.getState().getTasks().size());
@@ -45,7 +44,4 @@ public class TodoStoreTest {
 
         assertEquals(2, store.getState().getTasks().size());
     }
-
-
-
 }

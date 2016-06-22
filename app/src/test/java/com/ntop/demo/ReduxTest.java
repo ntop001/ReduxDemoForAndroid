@@ -1,8 +1,10 @@
-package com.ntop.redux.demo;
+package com.ntop.demo;
 
-import com.ntop.redux.demo.redux.Action;
-import com.ntop.redux.demo.redux.Reducer;
-import com.ntop.redux.demo.redux.Redux;
+import com.ntop.demo.redux.Action;
+import com.ntop.demo.redux.Observer;
+import com.ntop.demo.redux.Reducer;
+import com.ntop.demo.redux.Redux;
+import com.ntop.demo.redux.Store;
 
 import org.junit.Test;
 
@@ -23,7 +25,7 @@ public class ReduxTest {
     }
 
     @Test
-    public void nodeReducerReducer() {
+    public void combineReducerReducer() {
         String key = "aField";
         Reducer reducer = mockReducer("123");
 
@@ -35,7 +37,16 @@ public class ReduxTest {
 
         assertTrue(newState instanceof ATestClass);
 
-        assertEquals("123", ((ATestClass)newState).getaField());
+        assertEquals("123", ((ATestClass) newState).getaField());
+    }
+
+    @Test
+    public void createStore() {
+        Reducer reducer = mockReducer("some string");
+        Store store = Redux.createStore(AStore.class, reducer);
+
+        assertNotNull(store);
+        assertTrue( store instanceof AStore);
     }
 
     /*
@@ -67,6 +78,31 @@ public class ReduxTest {
 
         public String getaField() {
             return aField;
+        }
+    }
+
+    public static class AStore implements Store {
+        public AStore(Reducer reducer) {
+        }
+
+        @Override
+        public Object getState() {
+            return null;
+        }
+
+        @Override
+        public void dispatch(Action action) {
+
+        }
+
+        @Override
+        public void subscribe(Observer object) {
+
+        }
+
+        @Override
+        public void unSubscribe(Observer object) {
+
         }
     }
 }
